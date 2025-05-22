@@ -1,0 +1,100 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { marked } from "marked";
+
+export async function getStaticPaths() {
+  const projets = await getCollection("projets");
+  return projets.map((project) => ({
+    params: { slug: project.data.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const projets = await getCollection("projets");
+const projet = projets.find(p => p.data.slug === slug);
+
+if (!projet) {
+  return Astro.redirect("/projets");
+}
+
+// Convertir Markdown en HTML
+const detailsHtml = marked.parse(projet.data.details);
+---
+
+<Layout title={`${projet.data.title} - Mes projets`}>
+  <section class="min-h-screen w-full flex justify-center items-start p-8 bg-gradient-to-br from-blue-900 via-green-500 to-green-200">
+    <div class="max-w-5xl w-full mx-auto bg-white bg-opacity-95 p-10 rounded-xl shadow-xl">
+      <h1 class="text-4xl font-bold text-green-800 mb-8 text-center">{projet.data.title}</h1>
+
+      <div class="flex flex-col gap-8">
+        <!-- Images -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {projet.data.images.map((img) => (
+            <img 
+              src={img} 
+              alt={`${projet.data.title} architecture`} 
+              class="rounded shadow object-cover w-full h-48 cursor-zoom-in lightbox-img" 
+            />
+          ))}
+        </div>
+
+        <!-- Description -->
+        <p class="text-gray-800 leading-relaxed text-lg">{projet.data.description}</p>
+
+        <!-- Contexte -->
+        <section>
+          <h2 class="text-2xl font-semibold text-green-800 mb-3">Contexte et objectifs</h2>
+          <div class="prose prose-green max-w-none text-black" set:html={detailsHtml}></div>
+        </section>
+
+        <!-- Mon rôle -->
+        <section>
+          <h2 class="text-2xl font-semibold text-green-800 mb-3">Mon rôle dans le projet</h2>
+          <p class="text-gray-700">{projet.data.role}</p>
+        </section>
+
+        <!-- Techno -->
+        <section>
+          <h2 class="text-2xl font-semibold text-green-800 mb-3">Technologies utilisées</h2>
+          <ul class="list-disc list-inside text-gray-700">
+            {projet.data.technos.map(t => <li>{t}</li>)}
+          </ul>
+        </section>
+
+        <!-- Equipe -->
+        <section>
+          <h2 class="text-2xl font-semibold text-green-800 mb-3">Équipe et collaboration</h2>
+          <p class="text-gray-700">{projet.data.team}</p>
+        </section>
+      </div>
+
+      <!-- Boutons -->
+      <div class="mt-12 flex flex-wrap justify-center gap-6">
+        <a href="/projets" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">Retour aux projets</a>
+        <a href="/" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">Accueil</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<!-- ✅ Script EN DEHORS du Layout -->
+<script type="module">
+  import basicLightbox from 'https://unpkg.com/basiclightbox@5.0.4/dist/basicLightbox.min.js';
+
+  window.addEventListener("load", () => {
+    const imgs = document.querySelectorAll(".lightbox-img");
+    imgs.forEach(img => {
+      img.addEventListener("click", () => {
+        basicLightbox.create(`
+          <img 
+            src="${img.src}" 
+            alt="${img.alt}" 
+            style="max-width: 90vw; max-height: 90vh;" 
+          />
+        `).show();
+      });
+    });
+  });
+</script>
+

@@ -1,16 +1,21 @@
 ---
+// components/Layout.astro
 const { title } = Astro.props;
 ---
 
-<html lang="fr">
+<html lang="fr" class="h-full bg-gradient-to-tr from-green-700 via-blue-700 to-indigo-900">
   <head>
+    <title>{title}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <link rel="stylesheet" href="https://unpkg.com/basiclightbox@5.0.4/dist/basicLightbox.min.css">
   </head>
-  <body class="font-sans bg-gray-50 text-gray-800">
-    <main class="max-w-4xl mx-auto p-6">
+  <body class="min-h-screen flex flex-col text-white">
+    <main class="flex-grow px-4 sm:px-6 lg:px-8 w-full max-w-6xl mx-auto py-12">
       <slot />
     </main>
+    <footer class="text-center text-sm text-gray-300 py-4">
+      © 2025 Hadrien Poinseaux
+    </footer>
   </body>
 </html>

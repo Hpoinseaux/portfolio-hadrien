@@ -1,0 +1,20 @@
+---
+// components/ProjectCard.astro
+const { title, description, architectureImage, techStack, team } = Astro.props;
+---
+
+<article class="mb-12 bg-white bg-opacity-10 rounded-xl p-6 shadow-xl backdrop-blur-md">
+  <h3 class="text-3xl font-bold mb-4">{title}</h3>
+  <div class="flex flex-col lg:flex-row gap-6 items-start">
+    <img
+      src={architectureImage}
+      alt={`Architecture du projet ${title}`}
+      class="w-full lg:w-1/2 rounded-lg object-contain shadow-md"
+    />
+    <div class="lg:w-1/2 text-white space-y-3">
+      <p class="whitespace-pre-line">{description}</p>
+      <p><strong>Technologies :</strong> {techStack.join(', ')}</p>
+      <p><strong>Groupe de travail :</strong> {team}</p>
+    </div>
+  </div>
+</article>

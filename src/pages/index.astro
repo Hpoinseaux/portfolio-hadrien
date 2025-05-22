@@ -3,8 +3,99 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Hadrien Poinseaux - Architecte Web">
-  <section class="text-center mt-10">
-    <h1 class="text-4xl font-bold">Hadrien Poinseaux</h1>
-    <p class="text-lg mt-4 text-gray-600">[Ajoute ici ta phrase d'accroche professionnelle]</p>
+  <section
+    class="min-h-screen w-full flex justify-center items-start px-4 py-12"
+    style="background: linear-gradient(135deg, #1E3A8A 0%, #10B981 60%, #A7F3D0 100%);"
+  >
+    <div class="w-full max-w-5xl bg-white bg-opacity-90 p-6 sm:p-10 rounded-xl shadow-xl">
+
+      <!-- En-tête : photo + nom + titre -->
+      <header class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-10">
+        <img
+          src="/photo-profil.png"
+          alt="Photo de Hadrien Poinseaux"
+          class="rounded-full w-24 h-24 sm:w-28 sm:h-28 object-cover shadow-lg border-4 border-green-500"
+        />
+        <div class="text-center sm:text-left">
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900">Hadrien Poinseaux</h1>
+          <p class="mt-2 text-lg sm:text-xl text-gray-800 leading-relaxed max-w-2xl">
+            Artisan de la data et développement – solutions sur mesure, frugales et intelligentes |
+            Passeur de savoirs & créateur de liens humains autour de la tech
+          </p>
+        </div>
+      </header>
+
+      <!-- Profil & valeurs -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-semibold text-gray-900 mb-6">Profil & valeurs</h2>
+        <div class="space-y-5 text-lg text-gray-700 leading-relaxed max-w-3xl">
+          <p>
+            🎯 Artisan de la data, je conçois des solutions sur mesure, sobres et utiles, pour donner du sens aux données sans en faire trop.
+          </p>
+          <p>
+            🔹 Mon parcours m’a amené bien au-delà du simple code : enseignant passionné, j’ai découvert que la vraie valeur réside dans la transmission et la connexion entre les personnes.
+            Chaque ligne de code que je crée vise aussi à rapprocher les individus et à rendre la tech accessible.
+          </p>
+          <p>
+            🔹 De l’extraction à l’intelligence artificielle, je choisis les outils avec soin, toujours dans une démarche responsable et ciblée, pour construire des solutions efficaces et adaptées.
+          </p>
+          <p>
+            🔹 J’aime mettre la technique au service de l’humain. Enseigner, former, accompagner : c’est pour moi un levier puissant pour rendre les compétences concrètes, motivantes, et ancrées dans le quotidien des utilisateurs.
+          </p>
+          <p>
+            🔹 Je travaille avec Python, Power BI, Looker, AWS… mais surtout avec des personnes. Je crois au collectif, à la sobriété numérique et à une technologie qui rapproche.
+          </p>
+          <p class="italic">
+            Très bonne capacité d’analyse et de projection dans les projets et les architectures.  
+            Passionné par la communication, j’adopte des méthodes agiles et je m’adapte au travail en équipe de façon régulière.
+          </p>
+          <p class="italic text-green-700 font-semibold">
+            Mon objectif est clair : devenir un véritable <strong>couteau suisse</strong> capable de naviguer avec aisance dans cet univers en constante évolution.
+          </p>
+        </div>
+      </section>
+
+      <!-- Compétences techniques -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-semibold text-gray-900 mb-6">Compétences techniques</h2>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 text-lg max-w-3xl">
+          <li>Architecture data et mise en place de solutions de machine learning</li>
+          <li>Développement Full Stack (Front-end & Back-end)</li>
+          <li>Conception et optimisation d’architectures web modernes</li>
+          <li>CI/CD et déploiement automatisé avec les dernières technologies</li>
+          <li>Maîtrise des langages et outils : Python, Bash, Docker, Terraform, Git</li>
+          <li>Surveillance et monitoring : Prometheus, Grafana</li>
+          <li>Gestion de bases de données relationnelles et NoSQL (PostgreSQL, etc.)</li>
+          <li>Expertise cloud (principalement AWS)</li>
+          <li>Orchestration de conteneurs et automatisation d’infrastructure</li>
+          <li>Data Visualisation :</strong> Metabase, Superset, Looker Studio</li>
+        </ul>
+      </section>
+
+      <!-- Diplômes et expériences -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-semibold text-gray-900 mb-6">Diplômes et expériences</h2>
+        <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg max-w-3xl">
+          <li>Master FIAPS et MEEF (formation pour devenir enseignant EPS)</li>
+          <li>CAPPEI (2014) – Formation pour travailler avec des élèves en situation de handicap</li>
+          <li>Diplôme de chef de projet IA (2024) - Formation MinesTech, couvrant toutes les compétences techniques modernes</li>
+          <li>Enseignant EPS, coordinateur ULIS, enseignant spécialisé handicap, formateur pour OMNES Education</li>
+          <li>Multiples projets freelance dans la tech depuis 2023</li>
+          <li>Bénévole et membre du pôle tech pour la communauté Data4Good</li>
+          <li>Parle couramment anglais et français, donne des cours en anglais</li>
+        </ul>
+      </section>
+
+      <!-- Navigation -->
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="/projets" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">
+          Mes projets
+        </a>
+        <a href="/infos" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">
+          Plus d'infos
+        </a>
+      </div>
+
+    </div>
   </section>
 </Layout>

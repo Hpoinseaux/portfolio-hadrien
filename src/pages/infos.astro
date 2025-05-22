@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Plus d'infos - Hadrien Poinseaux">
+  <section
+    class="min-h-screen w-full flex justify-center items-start px-4 py-12"
+    style="background: linear-gradient(135deg, #1E3A8A 0%, #10B981 60%, #A7F3D0 100%);"
+  >
+    <div class="w-full max-w-3xl bg-white bg-opacity-90 p-6 sm:p-10 rounded-xl shadow-xl text-lg text-gray-700">
+      <h1 class="text-3xl font-bold text-gray-900 mb-6">Plus d'infos & contact</h1>
+
+      <ul class="space-y-4">
+        <li><strong>📧 Email :</strong> hadrien.poinseaux@gmail.com</li>
+        <li><strong>📞 Téléphone :</strong> +33 6 43 94 69 52</li>
+        <li>
+          <strong>🔗 LinkedIn :</strong>
+          <a href="https://linkedin.com/in/hadrien-poinseaux" class="text-blue-600 underline" target="_blank">hadrien-poinseaux</a>
+        </li>
+        <li>
+          <strong>🐙 GitHub :</strong>
+          <a href="https://github.com/Hpoinseaux" class="text-blue-600 underline" target="_blank">Hpoinseaux</a>
+        </li>
+        <li>
+          <strong>🦊 GitLab :</strong>
+          <a href="https://gitlab.com/hadrien.poinseaux" class="text-blue-600 underline" target="_blank">hadrien.poinseaux</a>
+        </li>
+        <li>
+          <strong>📄 CV :</strong>
+          <a href="/cv-hadrien-poinseaux.pdf" class="text-blue-600 underline" target="_blank" download>Télécharger mon CV</a>
+        </li>
+      </ul>
+
+      <!-- Navigation -->
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">
+          Mon portrait
+        </a>
+        <a href="/projets" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">
+          Mes projets
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
