@@ -9,6 +9,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
     "astro": "^5.8.0",
+    "basiclightbox": "^5.0.4",
     "marked": "^15.0.12",
     "swiper": "^11.2.7"
   },

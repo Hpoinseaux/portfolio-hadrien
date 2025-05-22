@@ -79,14 +79,17 @@ const detailsHtml = marked.parse(projet.data.details);
 </Layout>
 
 <!-- ✅ Script EN DEHORS du Layout -->
-<script type="module">
-  import basicLightbox from 'https://unpkg.com/basiclightbox@5.0.4/dist/basicLightbox.min.js';
+<!-- CSS obligatoire pour le lightbox -->
+<link rel="stylesheet" href="https://unpkg.com/basiclightbox@5.0.4/dist/basicLightbox.min.css" />
 
+<!-- Script JS global sans import ESModule -->
+<script src="https://unpkg.com/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+<script>
   window.addEventListener("load", () => {
     const imgs = document.querySelectorAll(".lightbox-img");
     imgs.forEach(img => {
       img.addEventListener("click", () => {
-        basicLightbox.create(`
+        window.basicLightbox.create(`
           <img 
             src="${img.src}" 
             alt="${img.alt}" 
@@ -97,4 +100,3 @@ const detailsHtml = marked.parse(projet.data.details);
     });
   });
 </script>
-
