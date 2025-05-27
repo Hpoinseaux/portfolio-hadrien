@@ -24,6 +24,16 @@ details: >
 
 role: "Développeur full-stack indépendant, en charge de toutes les étapes (idée, développement, design, déploiement). Projets réalisés par passion pour résoudre des problèmes concrets et les partager librement."
 
+durée: 
+  - "Projet nounou – 2 mois : Conception d'une application Streamlit de suivi des enfants, en lien avec plusieurs assistantes maternelles pour définir les besoins terrain et concevoir une interface simple et sécurisée."
+  
+  - "Outil accessibilité – 1,5 mois : Développement d’une webapp pour convertir, traduire et adapter des documents à différents handicaps ou contextes linguistiques, en collaboration avec un enseignant référent."
+
+  - "Chatbot éducatif – 2 mois : Création d’un assistant intelligent avec RAG, capable de répondre aux questions de parents d’enfants à besoins particuliers, incluant un corpus de ressources officielles."
+
+  - "Gestion documentaire PME – 1,5 mois : Réalisation d’une application interne no-code/low-code pour générer et gérer automatiquement des documents types, adaptée aux TPE avec peu de moyens techniques."
+
+
 technos:
   - Python
   - Streamlit
