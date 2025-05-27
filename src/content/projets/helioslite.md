@@ -9,6 +9,9 @@ images:
 description: >
   Une solution innovante de détection automatique de défaillances sur des fermes de panneaux photovoltaïques flottants sur des lacs. Le système combine IoT, analyse de données et machine learning pour optimiser la maintenance et maximiser la production.
 
+
+
+
 details: >
   Ce projet a débuté par une analyse approfondie des données collectées via des capteurs IoT installés sur la centrale EDF. Avec une équipe composée d’un développeur et de deux ingénieurs, nous avons mis en place des méthodes de data science pour identifier et optimiser les informations pertinentes pour la détection d’anomalies.
 
@@ -17,6 +20,14 @@ details: >
 
 
   Le déploiement a été effectué en interne avec une architecture robuste utilisant Terraform pour l’infrastructure, Airflow pour l’orchestration des workflows, et PostgreSQL pour la gestion des données.
+
+durée: 
+- "Phase 1 (6 mois) Analyse des besoins et étude de la viabilité du modèle de détection d’anomalies."
+
+- "Phase 2 (en cours) Déploiement des capteurs IoT sur site."
+
+- "Phase 3 (à venir) Entraînement et déploiement du modèle de détection, avec mise en place de l’automatisation."
+
 
 role: "Data Scientist et MLOps, responsable des modèles ML et du déploiement automatisé"
 

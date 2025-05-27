@@ -16,6 +16,15 @@ details: >
 
   En cas de convergence sur une thématique, un système de proposition automatisée de visio est déclenché pour favoriser l’échange collectif. Un retraining progressif permet d’améliorer la pertinence des fiches au fil du temps.
 
+
+durée:
+- "Phase 1 (2 mois) Compréhension et analyse des besoins."
+
+- "Phase 2 (4 mois) Choix de la stack technologique et amélioration du modèle."
+
+- "Phase 3 (1 mois) Déploiement et automatisation de la solution."
+
+
 role: "Responsable technique du POC, intégration des systèmes RAG, API WeLearn et mise en place du pipeline d’amélioration continue"
 
 technos:

@@ -5,10 +5,10 @@ import { getCollection } from "astro:content";
 const projets = await getCollection("projets");
 ---
 
-<Layout title="Mes projets - Hadrien Poinseaux">
+<Layout title="Mes expériences - Hadrien Poinseaux">
   <section class="min-h-screen w-full flex justify-center items-center p-8 bg-gradient-to-br from-blue-900 via-green-500 to-green-200 text-gray-900">
     <div class="max-w-6xl w-full mx-auto bg-white bg-opacity-90 p-10 rounded-xl shadow-xl">
-      <h1 class="text-4xl font-bold text-gray-900 mb-10 text-center">Mes projets</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-10 text-center">Mes expériences</h1>
 
       <div class="grid md:grid-cols-2 gap-8">
         {projets.map(({ data }) => (
@@ -23,7 +23,7 @@ const projets = await getCollection("projets");
       </div>
 
       <div class="mt-12 flex flex-wrap justify-center gap-6">
-        <a href="/" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">Retour à l'accueil</a>
+        <a href="/" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">Mon portrait</a>
         <a href="/infos" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">Plus d'infos</a>
       </div>
     </div>

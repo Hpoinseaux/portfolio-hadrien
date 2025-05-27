@@ -54,6 +54,14 @@ const detailsHtml = marked.parse(projet.data.details);
           <p class="text-gray-700">{projet.data.role}</p>
         </section>
 
+        <!-- Durée -->
+        <section>
+          <h2 class="text-2xl font-semibold text-green-800 mb-3">Phase du projet</h2>
+          <ul class="list-disc list-inside text-gray-700">
+            {projet.data.durée.map(t => <li>{t}</li>)}
+          </ul>
+        </section>
+
         <!-- Techno -->
         <section>
           <h2 class="text-2xl font-semibold text-green-800 mb-3">Technologies utilisées</h2>

@@ -15,7 +15,18 @@ details: >
 
 
   Ce projet nous a permis de tester un POC complet et fonctionnel, avec un cycle de calcul régulier optimisé pour la montée en charge.
+
 role: "Tech lead, architecture data, déploiement backend et frontend"
+
+durée:
+
+- "Phase 1 (1 mois) Compréhension des besoins et proposition d’une architecture adaptée, en tenant compte du budget et des moyens humains disponibles."
+
+- "Phase 2 (3 mois) Mise en place de l’architecture technique : base de données, backend, Superset et frontend."
+
+- "Phase 3 (1 mois)Passage et déploiement sur la VPS, avec une phase de test et réalisation d’un POC (Proof of Concept)."
+
+
 technos:
   - PostgreSQL
   - Superset
