@@ -1,255 +1,164 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const experiences = [
+  { year: "Depuis 2024", title: "Enseignant & Formateur", org: "OMNES Education", desc: "Cours licence à master en cybersécurité / data / IA / programmation", type: "exp" },
+  { year: "Depuis 2023", title: "Freelance", org: "Indépendant", desc: "Missions en architecture et développement", type: "exp" },
+  { year: "Depuis 2022", title: "Membre pôle tech", org: "Data4Good", desc: "Bénévolat, tech lead sur des projets data à impact", type: "exp" },
+  { year: "2018-2025", title: "Enseignant/Formateur spécialisé", org: "Éducation nationale", desc: "Inclusion & adaptations pour le handicap", type: "exp" },
+  { year: "2014-2018", title: "Enseignant EPS", org: "Éducation nationale", desc: "Cours d’éducation physique et sportive", type: "exp" }
+];
+
+const diplomes = [
+  { year: "2022", title: "Master Chef de Projet IA", org: "MinesTech Paris", type: "dip" },
+  { year: "2018", title: "CAPPEI", org: "Éducation nationale", desc: "Spécialisation handicap", type: "dip" },
+  { year: "2014", title: "Master FIAPS & MEEF (EPS)", org: "Université Lyon 1", type: "dip" }
+];
+
+// Fusion et tri correct
+const timeline = [...diplomes, ...experiences].sort((a, b) => {
+  const getYear = str => {
+    // Extrait la première année trouvée dans la chaîne
+    const match = str.match(/\d{4}/);
+    return match ? parseInt(match[0]) : 0;
+  };
+  return getYear(a.year) - getYear(b.year);
+});
 ---
 
 <Layout title="Hadrien Poinseaux - Développeur & Architecte Data/IA">
-  <section
-    class="min-h-screen w-full flex justify-center items-start px-4 py-12"
-    style="background: linear-gradient(135deg, #1E3A8A 0%, #10B981 60%, #A7F3D0 100%);"
-  >
+  <section class="min-h-screen w-full flex justify-center items-start px-4 py-12 bg-gradient-to-tr from-green-700 via-blue-700 to-indigo-900">
     <div class="w-full max-w-5xl bg-white bg-opacity-90 p-6 sm:p-10 rounded-xl shadow-xl">
 
-      <!-- En-tête : photo + nom + titre -->
-      <header class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-10">
-        <img
-          src="/photo-profil.png"
-          alt="Photo de Hadrien Poinseaux"
-          class="rounded-full w-24 h-24 sm:w-28 sm:h-28 object-cover shadow-lg border-4 border-green-500"
-        />
+      <!-- HERO -->
+      <header class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-12">
+        <img src="/photo-profil.png" alt="Photo de Hadrien Poinseaux" class="rounded-full w-28 h-28 object-cover shadow-lg border-4 border-green-500" />
         <div class="text-center sm:text-left">
           <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900">Hadrien Poinseaux</h1>
-          <p class="mt-2 text-lg sm:text-xl text-gray-800 leading-relaxed max-w-2xl">
-            Développeur & Architecte Data/IA passionné, je conçois des solutions techniques robustes et visionnaires, capables de transformer les défis complexes en opportunités stratégiques.
-            <br/><br/>
-            Ma force réside dans une maîtrise fine des technologies émergentes combinée à une approche pragmatique et centrée utilisateur, garantissant des systèmes à la fois scalables, innovants et durables.
-            <br/><br/>
-            En m’appuyant sur une veille technologique incessante (podcasts, lectures, communautés) et une écoute active des besoins métiers, je crée des architectures qui anticipent l’avenir et accélèrent la création de valeur.
+          <p class="mt-2 text-xl text-green-700 font-semibold"><span id="typing"></span></p>
+          <p class="mt-4 text-lg sm:text-xl text-gray-800 leading-relaxed max-w-2xl">
+            Passionné par la Data et l’IA, je conçois des solutions robustes et scalables qui transforment les défis en opportunités stratégiques.
           </p>
         </div>
       </header>
 
-      <!-- Valeurs ancrées, ambitions assumées -->
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-gray-900 mb-8">Valeurs & Engagements</h2>
-        <div class="grid grid-cols-1 gap-6 max-w-4xl text-gray-700 text-lg leading-relaxed">
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🏗️</span>
-            <div>
-              <h3 class="font-semibold mb-1">Architecte & Artisan</h3>
-              <p>
-                Je conçois des architectures sobres et scalables, sans sur-ingénierie.  
-                La <em>frugalité technique</em> est au cœur de mon approche : la simplicité est une force.
-              </p>
+      <!-- VALEURS (sous forme de cartes) -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-semibold text-gray-900 mb-8 text-center">Valeurs & Engagements</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {icon:"🏗️",title:"Architecte & Artisan",desc:"Des architectures sobres et scalables, sans sur-ingénierie."},
+            {icon:"🧩",title:"Compréhension & Précision",desc:"Je privilégie des solutions ciblées et efficaces."},
+            {icon:"🎧",title:"Veille & Écoute",desc:"Toujours à l’affût pour rester pertinent et innovant."},
+            {icon:"🤝",title:"Collaboration",desc:"Relations solides basées sur confiance et transparence."},
+            {icon:"🌱",title:"Sobriété numérique",desc:"Des choix techniques responsables et durables."}
+          ].map(v => (
+            <div class="bg-white rounded-xl p-6 shadow hover:shadow-lg transform hover:-translate-y-1 transition">
+              <div class="text-3xl text-green-600 mb-3">{v.icon}</div>
+              <h3 class="font-semibold text-lg mb-2">{v.title}</h3>
+              <p class="text-gray-700 text-base">{v.desc}</p>
             </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🧩</span>
-            <div>
-              <h3 class="font-semibold mb-1">Compréhension & Précision</h3>
-              <p>
-                Plutôt que d’accumuler les technologies, je privilégie la compréhension fine des besoins pour construire des solutions ciblées et efficaces.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🎧</span>
-            <div>
-              <h3 class="font-semibold mb-1">Veille & Écoute active</h3>
-              <p>
-                Passionné par l’évolution technologique, je me tiens informé via podcasts, articles et échanges, ce qui me permet d’être proactif et de proposer des solutions innovantes et adaptées.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🤝</span>
-            <div>
-              <h3 class="font-semibold mb-1">Confiance & Collaboration</h3>
-              <p>
-                Je construis des relations solides avec les équipes et clients, basées sur l’écoute, la transparence et la proactivité. Cette confiance me permet d’assumer des responsabilités importantes dans les projets.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🌱</span>
-            <div>
-              <h3 class="font-semibold mb-1">Responsabilité & Sobriété numérique</h3>
-              <p>
-                Je privilégie des choix techniques durables, responsables, qui limitent la dette technique et l’impact environnemental.
-              </p>
-            </div>
-          </div>
-
-          <p class="italic text-gray-600 mt-4">
-            Rigoureux et adaptable, j’adopte les méthodologies agiles pour garantir la réussite et la qualité des projets.
-          </p>
-          <p class="italic text-green-700 font-semibold mt-2">
-            Mon ambition : devenir un développeur polyvalent et architecte de confiance dans un environnement en constante évolution.
-          </p>
+          ))}
         </div>
       </section>
 
-      <!-- Boîte à outils d’un artisan digital -->
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-gray-900 mb-8">Compétences techniques & outils</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl text-gray-700 text-lg">
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🗂️</span>
-            <div>Architecture data & Machine Learning</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">💻</span>
-            <div>Développement Full Stack (Front & Back)</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🚀</span>
-            <div>CI/CD & déploiement automatisé</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🛠️</span>
-            <div>Python, Bash, Docker, Terraform, Git, Scaleway</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">📈</span>
-            <div>Monitoring & Observabilité : Prometheus, Grafana</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">💾</span>
-            <div>Bases de données relationnelles & NoSQL (PostgreSQL, etc.)</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">☁️</span>
-            <div>Expertise cloud (AWS principalement)</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🔍</span>
-            <div>Veille technologique continue (podcasts, blogs, communautés)</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">⚙️</span>
-            <div>Orchestration de conteneurs & automatisation d’infrastructure</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">📊</span>
-            <div>Data Visualisation : Metabase, Superset, Looker Studio</div>
-          </div>
-
+      <!-- COMPÉTENCES TECHNIQUES -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-semibold text-gray-900 mb-8 text-center">Compétences techniques</h2>
+        <div class="flex flex-wrap gap-3 justify-center">
+          {["Python","Docker","Terraform","AWS","CI/CD","Prometheus","Grafana","PostgreSQL","NoSQL","Bash","Git","Scaleway"].map(skill => (
+            <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full shadow hover:scale-105 transition">
+              {skill}
+            </span>
+          ))}
         </div>
       </section>
 
-      <!-- Soft Skills & Méthodologies -->
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-gray-900 mb-8">Savoir-être & méthodes</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl text-gray-700 text-lg leading-relaxed">
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🛠️</span>
-            <div>
-              <h3 class="font-semibold mb-1">Patience & Rigueur</h3>
-              <p>J’analyse en profondeur pour construire des solutions fiables, maintenables et évolutives.</p>
+      <!-- SOFT SKILLS -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-semibold text-gray-900 mb-8 text-center">Savoir-être & méthodes</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {[
+            {icon:"🛠️",title:"Patience & Rigueur",desc:"Solutions fiables, maintenables et évolutives."},
+            {icon:"🎧",title:"Curiosité",desc:"Veille active et apprentissage continu."},
+            {icon:"⚙️",title:"Agile",desc:"Flexibilité et amélioration continue."},
+            {icon:"🤝",title:"Communication",desc:"Pont entre équipes techniques et métiers."}
+          ].map(s => (
+            <div class="bg-white rounded-xl p-6 shadow hover:shadow-md transition">
+              <div class="text-3xl text-green-600 mb-3">{s.icon}</div>
+              <h3 class="font-semibold mb-2">{s.title}</h3>
+              <p class="text-gray-700 text-base">{s.desc}</p>
             </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🎧</span>
-            <div>
-              <h3 class="font-semibold mb-1">Curiosité & veille</h3>
-              <p>Je m’appuie sur une veille active et l’apprentissage continu pour rester à jour et apporter des solutions innovantes.</p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">⚙️</span>
-            <div>
-              <h3 class="font-semibold mb-1">Méthodologies agiles</h3>
-              <p>Je m’intègre aux équipes avec flexibilité et cherche l’amélioration continue pour répondre au mieux aux besoins évolutifs.</p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🤝</span>
-            <div>
-              <h3 class="font-semibold mb-1">Collaboration & communication</h3>
-              <p>Je crée des ponts entre les équipes techniques et métiers, favorisant la compréhension et la co-construction.</p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4 sm:col-span-2">
-            <span class="text-green-600 text-3xl">🌱</span>
-            <div>
-              <h3 class="font-semibold mb-1">Sobriété numérique & responsabilité</h3>
-              <p>Je privilégie des solutions durables, simples et respectueuses de l’environnement et des utilisateurs.</p>
-            </div>
-          </div>
-
+          ))}
         </div>
       </section>
 
-      <!-- Mes diplômes et expériences -->
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-gray-900 mb-8">Parcours & expériences</h2>
-        <div class="space-y-4 max-w-4xl text-gray-700 text-lg">
+      <!-- TIMELINE CENTRALE -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-semibold text-gray-900 mb-12 text-center">Parcours</h2>
+        <div class="relative max-w-4xl mx-auto">
+          <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-gray-300"></div>
 
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🎓</span>
-            <div>Master FIAPS et MEEF (formation enseignant EPS)</div>
+          <div class="space-y-12">
+            {timeline.map((item, i) => {
+              const isDip = item.type === "dip";
+              const justifyClass = i % 2 === 0 ? "justify-start" : "justify-end";
+              const paddingClass = i % 2 === 0 ? "pr-8 text-right" : "pl-8";
+              const circleColor = isDip ? "bg-blue-600" : "bg-green-600";
+              const yearColor = isDip ? "text-blue-600" : "text-green-600";
+
+              return (
+                <div class={`relative flex ${justifyClass} items-center`} 
+                    data-aos={i % 2 === 0 ? "fade-right" : "fade-left"} 
+                    data-aos-delay={i * 150}>
+                  <div class={`w-1/2 ${paddingClass} bg-white rounded-xl p-4 shadow transition-transform duration-300 hover:scale-105 hover:shadow-lg`}>
+                    <h4 class={`text-lg font-bold ${yearColor}`}>{item.year}</h4>
+                    <p class="text-gray-900 font-semibold">{item.title}</p>
+                    <p class="text-gray-700">{item.org}</p>
+                    {item.desc && <p class="text-gray-500 italic text-sm">{item.desc}</p>}
+                  </div>
+                  <div class={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-white shadow ${circleColor}`} data-aos="zoom-in"></div>
+                </div>
+              )
+            })}
           </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">📜</span>
-            <div>CAPPEI (2014) – Spécialisation travail avec élèves en situation de handicap</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🤖</span>
-            <div>Diplôme Chef de Projet IA (2022) - MinesTech</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">💼</span>
-            <div>
-              Freelance tech depuis 2023, avec des missions où j’ai su gagner la confiance grâce à ma proactivité, ma rigueur et ma capacité à livrer des solutions adaptées.
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🤝</span>
-            <div>Bénévole et membre du pôle tech pour la communauté Data4Good</div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <span class="text-green-600 text-3xl">🌍</span>
-            <div>Français / Anglais courant, avec expérience d’enseignement en anglais</div>
-          </div>
-
         </div>
       </section>
 
-      <!-- Navigation -->
-      <div class="mt-12 flex flex-wrap gap-4">
-        <a href="/projets" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">
-          Mes expériences professionnelles
-        </a>
-        <a href="/infos" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">
-          Plus d'infos
-        </a>
+      <!-- CTA -->
+      <div class="mt-12 flex flex-wrap justify-center gap-4">
+        <a href="/projets" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">💼 Mes expériences</a>
+        <a href="/infos" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">📬 Contact</a>
       </div>
 
     </div>
   </section>
-</Layout>
 
+  <!-- Typing animation -->
+  <script>
+    const roles = ["Architecte Data/IA", "Développeur Full-Stack", "Passionné de Cloud & DevOps"];
+    let i = 0, j = 0, current = "", deleting = false;
+    const typingEl = document.getElementById("typing");
+
+    function type() {
+      if (i < roles.length) {
+        if (!deleting && j <= roles[i].length) { current = roles[i].slice(0, j++); typingEl.textContent = current; }
+        else if (deleting && j >= 0) { current = roles[i].slice(0, j--); typingEl.textContent = current; }
+        if (j === roles[i].length + 5) deleting = true;
+        if (j < 0) { deleting = false; i = (i + 1) % roles.length; }
+        setTimeout(type, deleting ? 50 : 120);
+      }
+    }
+    type();
+        // Progress bar au scroll
+    window.addEventListener("scroll", () => {
+      const progressLine = document.getElementById("progress-line");
+      if (!progressLine) return;
+      const section = progressLine.parentElement;
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const visible = Math.min(1, Math.max(0, (windowHeight - rect.top) / (rect.height + windowHeight)));
+      progressLine.style.transform = `translateX(-50%) scaleY(${visible})`;
+    });
+  </script>
+</Layout>

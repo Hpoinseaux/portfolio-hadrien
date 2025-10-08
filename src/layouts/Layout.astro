@@ -8,14 +8,47 @@ const { title } = Astro.props;
     <title>{title}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Lightbox CSS -->
     <link rel="stylesheet" href="https://unpkg.com/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   </head>
   <body class="min-h-screen flex flex-col text-white">
     <main class="flex-grow px-4 sm:px-6 lg:px-8 w-full max-w-6xl mx-auto py-12">
       <slot />
     </main>
+
     <footer class="text-center text-sm text-gray-300 py-4">
       © 2025 Hadrien Poinseaux
     </footer>
+
+    <!-- Scripts -->
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+
+    <script defer>
+      window.addEventListener("load", () => {
+        if (typeof AOS !== "undefined") {
+          AOS.init({
+            duration: 800, // durée animation ms
+            once: true,    // animation une seule fois
+        });
+        } else {
+          console.warn("AOS non chargé !");
+        }
+
+        // Lightbox pour images
+        const imgs = document.querySelectorAll(".lightbox-img");
+        imgs.forEach(img => {
+          img.addEventListener("click", () => {
+            window.basicLightbox.create(`
+              <img src="${img.src}" alt="${img.alt}" style="max-width: 90vw; max-height: 90vh;" />
+            `).show();
+          });
+        });
+      });
+    </script>
   </body>
 </html>

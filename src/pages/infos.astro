@@ -2,43 +2,42 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Plus d'infos - Hadrien Poinseaux">
-  <section
-    class="min-h-screen w-full flex justify-center items-start px-4 py-12"
-    style="background: linear-gradient(135deg, #1E3A8A 0%, #10B981 60%, #A7F3D0 100%);"
-  >
-    <div class="w-full max-w-3xl bg-white bg-opacity-90 p-6 sm:p-10 rounded-xl shadow-xl text-lg text-gray-700">
-      <h1 class="text-3xl font-bold text-gray-900 mb-6">Plus d'infos & contact</h1>
+<Layout title="Me contacter - Hadrien Poinseaux">
+  <section class="min-h-screen w-full flex justify-center items-start px-4 py-12 bg-gradient-to-br from-blue-900 via-green-500 to-green-200">
+    <div class="w-full max-w-3xl bg-white bg-opacity-90 p-8 sm:p-12 rounded-2xl shadow-xl text-lg text-gray-700">
+      <h1 class="text-4xl font-bold text-center text-gray-900 mb-10">📬 Me contacter</h1>
 
-      <ul class="space-y-4">
-        <li><strong>📧 Email :</strong> hadrien.poinseaux@gmail.com</li>
-        <li><strong>📞 Téléphone :</strong> +33 6 43 94 69 52</li>
-        <li>
-          <strong>🔗 LinkedIn :</strong>
-          <a href="https://linkedin.com/in/hadrien-poinseaux" class="text-blue-600 underline" target="_blank">hadrien-poinseaux</a>
-        </li>
-        <li>
-          <strong>🐙 GitHub :</strong>
-          <a href="https://github.com/Hpoinseaux" class="text-blue-600 underline" target="_blank">Hpoinseaux</a>
-        </li>
-        <li>
-          <strong>🦊 GitLab :</strong>
-          <a href="https://gitlab.com/hadrien.poinseaux" class="text-blue-600 underline" target="_blank">hadrien.poinseaux</a>
-        </li>
-        <li>
-          <strong>📄 CV :</strong>
-          <a href="/cv-hadrien-poinseaux.pdf" class="text-blue-600 underline" target="_blank" download>Télécharger mon CV</a>
-        </li>
-      </ul>
+      <div class="grid gap-6">
+        <a href="mailto:hadrien.poinseaux@gmail.com" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl hover:bg-green-100 transition">
+          <span class="text-2xl">📧</span>
+          <span>hadrien.poinseaux@gmail.com</span>
+        </a>
+        <a href="tel:+33643946952" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl hover:bg-green-100 transition">
+          <span class="text-2xl">📞</span>
+          <span>+33 6 43 94 69 52</span>
+        </a>
+        <a href="https://linkedin.com/in/hadrien-poinseaux" target="_blank" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl hover:bg-green-100 transition">
+          <span class="text-2xl">🔗</span>
+          <span>LinkedIn / hadrien-poinseaux</span>
+        </a>
+        <a href="https://github.com/Hpoinseaux" target="_blank" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl hover:bg-green-100 transition">
+          <span class="text-2xl">🐙</span>
+          <span>GitHub / Hpoinseaux</span>
+        </a>
+        <a href="https://gitlab.com/hadrien.poinseaux" target="_blank" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl hover:bg-green-100 transition">
+          <span class="text-2xl">🦊</span>
+          <span>GitLab / hadrien.poinseaux</span>
+        </a>
+        <a href="/cv-hadrien-poinseaux.pdf" download class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl hover:bg-green-100 transition">
+          <span class="text-2xl">📄</span>
+          <span>Télécharger mon CV</span>
+        </a>
+      </div>
 
       <!-- Navigation -->
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a href="/" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">
-          Mon portrait
-        </a>
-        <a href="/projets" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">
-          Mes expériences professionnelles
-        </a>
+      <div class="mt-12 flex flex-wrap justify-center gap-6">
+        <a href="/" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">🏠 Mon portrait</a>
+        <a href="/projets" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">💼 Mes expériences</a>
       </div>
     </div>
   </section>

@@ -1,36 +1,66 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
-
-const projets = await getCollection("projets");
 ---
 
 <Layout title="Mes expériences - Hadrien Poinseaux">
-  <section class="min-h-screen w-full flex justify-center items-center p-8 bg-gradient-to-br from-blue-900 via-green-500 to-green-200 text-gray-900">
-    <div class="max-w-6xl w-full mx-auto bg-white bg-opacity-90 p-10 rounded-xl shadow-xl">
-      <h1 class="text-4xl font-bold text-gray-900 mb-6 text-center">Mes expériences professionnelles</h1>
+  <section class="min-h-screen w-full flex justify-center items-start px-4 py-12 bg-gradient-to-br from-blue-900 via-green-500 to-green-200">
+    <div class="w-full max-w-3xl bg-white bg-opacity-90 p-8 sm:p-12 rounded-2xl shadow-xl text-lg text-gray-700">
+      <h1 class="text-4xl font-bold text-center text-gray-900 mb-10">📬 Me contacter</h1>
 
-      <p class="mb-8 text-gray-700 text-lg max-w-4xl mx-auto text-center italic">
-        Toutes mes expériences sont réelles, acquises auprès d’entreprises et d’associations reconnues :  
-        <strong>une entreprise passée à la télévision dans "Qui veut être mon associé ?" </strong>  
-        ainsi qu’<strong>un des plus grands distributeurs de CD/DVD en France</strong>.
-      </p>
+      <div class="grid gap-6">
+        <!-- Email -->
+        <a href="mailto:hadrien.poinseaux@gmail.com" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600 transition-transform group-hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4 4m0 0l-4-4m4 4V8"/>
+          </svg>
+          <span class="transition-colors group-hover:text-green-700">hadrien.poinseaux@gmail.com</span>
+        </a>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        {projets.map(({ data }) => (
-          <a href={`/projets/${data.slug}`} class="group bg-white border border-gray-200 rounded-xl overflow-hidden shadow hover:shadow-lg transition transform hover:-translate-y-1">
-            <img src={data.images[0]} alt={data.title} class="w-full h-48 object-cover group-hover:opacity-90 transition" />
-            <div class="p-5">
-              <h2 class="text-2xl font-semibold text-gray-800 group-hover:text-green-700 transition">{data.title}</h2>
-              <p class="text-gray-600 mt-2 text-base line-clamp-3">{data.description}</p>
-            </div>
-          </a>
-        ))}
+        <!-- Téléphone -->
+        <a href="tel:+33643946952" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600 transition-transform group-hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l.4 2M7 10l2 1m5 4l2 1m4 0h2"/>
+          </svg>
+          <span class="transition-colors group-hover:text-green-700">+33 6 43 94 69 52</span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/hadrien-poinseaux" target="_blank" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-700 transition-transform group-hover:scale-125" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4.98 3.5C3.33 3.5 2 4.83 2 6.48s1.33 2.98 2.98 2.98S7.96 8.13 7.96 6.48 6.63 3.5 4.98 3.5zM2.4 9h5.16v12H2.4V9zm7.44 0h4.92v1.56h.07c.69-1.31 2.37-2.7 4.88-2.7 5.23 0 6.2 3.44 6.2 7.91V21H17.6v-6.91c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.79-2.65 3.65V21H7.84V9z"/>
+          </svg>
+          <span class="transition-colors group-hover:text-blue-700">LinkedIn / hadrien-poinseaux</span>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/Hpoinseaux" target="_blank" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 transition-transform group-hover:scale-125" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.263.82-.582 0-.287-.01-1.045-.015-2.05-3.338.724-4.042-1.613-4.042-1.613-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.835 2.807 1.305 3.492.997.108-.774.418-1.305.762-1.605-2.665-.305-5.467-1.333-5.467-5.933 0-1.31.467-2.38 1.236-3.22-.124-.304-.536-1.527.118-3.182 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.656 1.655.244 2.878.12 3.182.77.84 1.236 1.91 1.236 3.22 0 4.61-2.807 5.625-5.479 5.922.43.372.814 1.102.814 2.222 0 1.606-.015 2.902-.015 3.293 0 .322.216.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.373-12-12-12z" clip-rule="evenodd"/>
+          </svg>
+          <span class="transition-colors group-hover:text-gray-900">GitHub / Hpoinseaux</span>
+        </a>
+
+        <!-- GitLab -->
+        <a href="https://gitlab.com/hadrien.poinseaux" target="_blank" class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-600 transition-transform group-hover:scale-125" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22.999 16.624l-2.123-6.54-3.675-11.303c-.162-.496-.927-.496-1.088 0L14.897 10H9.103L8.887 5.781 5.21 17.217 2.999 16.624 12 22.5l10.999-5.876z"/>
+          </svg>
+          <span class="transition-colors group-hover:text-orange-700">GitLab / hadrien.poinseaux</span>
+        </a>
+
+        <!-- CV -->
+        <a href="/cv-hadrien-poinseaux.pdf" download class="flex items-center gap-4 p-4 bg-gray-100 rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 transition-transform group-hover:scale-125" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+          <span class="transition-colors group-hover:text-blue-700">Télécharger mon CV</span>
+        </a>
       </div>
 
+      <!-- Navigation -->
       <div class="mt-12 flex flex-wrap justify-center gap-6">
-        <a href="/" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">Mon portrait</a>
-        <a href="/infos" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">Plus d'infos</a>
+        <a href="/" class="px-6 py-3 bg-green-600 text-white rounded shadow hover:bg-green-700 transition">🏠 Mon portrait</a>
+        <a href="/projets" class="px-6 py-3 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition">💼 Mes expériences</a>
       </div>
     </div>
   </section>
